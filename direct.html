@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Train Ticket Booking{% endblock %}</title>
+</head>
+<body>
+    <form action="/verify" method="post">
+        <select name="date">
+            {% for date in dates %}
+                <option value="{{ date }}">{{ date }}</option>
+            {% endfor %}
+        </select>
+        <select name="age">
+            <option value="Том хүн">Том хүн</option>
+            <option value="Хүүхэд">Хүүхэд</option>
+        </select>
+
+        <select name="seatType">
+            <option value="luxury">Luxury</option>
+            <option value="regular">Regular</option>
+        </select>
+        <select name="seatNum">
+            {% for seat in seats %}
+                <option value="{{ seat }}">{{ seat }}</option>
+            {% endfor %}
+        </select>
+        <label for="bname">Username:</label>
+        <input type="text" name="bname" id="bname">
+        <label for="regNumber">Register Number:</label>
+        <input type="text" name="regNumber" id="regNumber">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" name="phoneNumber" id="phoneNumber">
+        <input type="submit" value="Submit" class="btn">
+    </form>
+    <form action="{{ url_for('previous_page1') }}" method="get">
+        <button type="submit">Back</button>
+    </form>
+</body>
+
+

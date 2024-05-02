@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="style.css">
+                <script src="main.js"></script>
+                <title>Document</title>
+                 <style>
+                    body {
+                        max-width: 100vw;
+                        background-color: #f0f0f0;
+                        font-family: Arial, sans-serif;
+                        box-sizing: border-box;
+                    }
+                    header {
+                        text-align: center;
+                    }
+                    .container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center; /* Center the form horizontally */
+                        margin-top: 20px; /* Add some space between header and form */
+                    }
+                    select, input[type="submit"] {
+                        margin-bottom: 10px; /* Add space between form elements */
+                    }
+                </style>
+            </head>
+            <body>
+                <header>
+                    <div>
+                        <h2>Галт тэрэгний тасалбар захиалгын системд тавтай морилно уу.</h2>
+                    </div>
+                </header>
+                <h3>Select Departure Station:</h3>
+                <form action="/direct" method="post">
+                    <div class="container">
+                        <select name="departure">
+                            {% for departure in departures %}
+                                <option value="{{ departure }}">{{ departure }}</option>
+                            {% endfor %}
+                        </select>
+                        <br><br>
+                        <h3>Select Arrival Station:</h3>
+                        <select name="arrival">
+                            {% for arrival in arrivals %}
+                                <option value="{{ arrival }}">{{ arrival }}</option>
+                            {% endfor %}
+                        </select>
+                        <br><br>
+                        <input type="submit" value="Submit" class="btn">
+                    </div>
+                </form>
+            </body>
+        </html>
+        
+    
