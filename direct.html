@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Train Ticket Booking{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        select,
+        input[type="text"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        button {
+            background-color: #ddd;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <form action="/verify" method="post">
+        <h1>Train Ticket Booking</h1>
+        <label for="date">Date:</label>
+        <select name="date" id="date">
+            {% for date in dates %}
+                <option value="{{ date }}">{{ date }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="age">Age Group:</label>
+        <select name="age" id="age">
+            <option value="Том хүн">Том хүн</option>
+            <option value="Хүүхэд">Хүүхэд</option>
+        </select>
+
+        <label for="seatType">Seat Type:</label>
+        <select name="seatType" id="seatType">
+            <option value="luxury">Luxury</option>
+            <option value="regular">Regular</option>
+        </select>
+
+        <label for="seatNum">Seat Number:</label>
+        <select name="seatNum" id="seatNum">
+            {% for seat in seats %}
+                <option value="{{ seat }}">{{ seat }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="bname">Username:</label>
+        <input type="text" name="bname" id="bname">
+
+        <label for="regNumber">Register Number:</label>
+        <input type="text" name="regNumber" id="regNumber">
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" name="phoneNumber" id="phoneNumber">
+
+        <input type="submit" value="Submit" class="btn">
+    </form>
+    <form action="{{ url_for('previous_page1') }}">
+    <button type="submit">Back</button>
+    </form>

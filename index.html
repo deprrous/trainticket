@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- Assume you have a separate CSS file for additional styles -->
+    <script src="main.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            max-width: 100vw;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        select,
+        input[type="submit"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 2px solid #4CAF50; /* Green */
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        select:hover,
+        input[type="submit"]:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            cursor: pointer;
+        }
+
+        select:focus,
+        input[type="submit"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px #4CAF50; /* Green */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div>
+        <h2>Галт тэрэгний тасалбар захиалгын системд тавтай морилно уу.</h2>
+    </div>
+</header>
+<h3 style="text-align: center;">Select Departure Station:</h3>
+<div class="container">
+    <form action="/direct" method="post">
+        <select name="departure">
+            {% for departure in departures %}
+            <option value="{{ departure }}">{{ departure }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <h3 style="text-align: center;">Select Arrival Station:</h3>
+        <select name="arrival">
+            {% for arrival in arrivals %}
+            <option value="{{ arrival }}">{{ arrival }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Submit" class="btn">
+    </form>
+</div>
+</body>
+</html>

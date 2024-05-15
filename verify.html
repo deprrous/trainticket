@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Train Ticket Booking{% endblock %}</title>
+    
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .verification-details {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .verification-details label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .verification-details p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .price {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        .pay-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pay-button button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pay-button button:hover {
+            background-color: #0056b3;
+        }
+
+
+        .back-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button button {
+            padding: 10px 20px;
+            background-color: #dc3545; /* Red color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #c82333; /* Darker shade of red on hover */
+        }
+     </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Verification Details</h1>
+        <div class="verification-details">
+            <p><label>Name:</label> {{ bname }}</p>
+            <p><label>Registration Number:</label> {{ regNumber }}</p>
+            <p><label>Age:</label> {{ age }}</p>
+            <p><label>Date:</label> {{ date }}</p>
+            <p><label>Price:</label> {{ price }} MNT</p>
+        </div>
+        <div class="price">
+            <p>Total Price: {{ price }} MNT</p>
+        </div>
+        <div class="pay-button">
+            <form action="{{ url_for('end') }}" method="get">
+                <button type="submit">Pay now</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="back-button">
+        <form action="{{ url_for('previous_page2') }}" method="get">
+            <button type="submit">Back</button>
+        </form>
+    </div>
+
+</body>
+</html>
